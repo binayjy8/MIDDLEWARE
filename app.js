@@ -28,7 +28,7 @@ app.get("/err", (req, res) => {
 
 app.use((err, req, res, next) => {
     console.log("-------ERROR-------");
-    next(err);
+    res.send(err);
 });
 
 // app.use((req, res) => {
