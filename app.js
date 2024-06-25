@@ -1,6 +1,14 @@
 const express = require("express");
 const app = express();
 
+app.use("/api", (req, res, next) => {
+    let { token } = req.body;
+    if(token === "giveaccess") {
+        next ();
+    }
+    res.send("ACCESS DENIED!");
+});
+
 app.get("/api", (req, res) => {
     res.send("data");
 });
