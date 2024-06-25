@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.use("/api", (req, res, next) => {
+const checkToken = ("/api", (req, res, next) => {
     let { token } = req.query;
     if(token === "giveaccess") {
         next ();
@@ -9,7 +9,7 @@ app.use("/api", (req, res, next) => {
     res.send("ACCESS DENIED!");
 });
 
-app.get("/api", (req, res) => {
+app.get("/api", checkToken, (req, res) => {
     res.send("data");
 });
 
