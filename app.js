@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const ExpressError = require("./ExpressError");
 
 const checkToken = ("/api", (req, res, next) => {
     let { token } = req.query;
