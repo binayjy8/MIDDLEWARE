@@ -21,11 +21,13 @@ app.get("/random", (req, res) => {
     res.send("this is a random page");
 });
 
-// app.use( (req, res, next) => {
-//     req.time = Date.now();
-//     console.log(req.method, req.hostname, req.path, req.time);
-//     next();
-// });
+app.get("/err", (req, res) => {
+    cggd=hjhgj;
+});
+
+app.use((err, req, res, next) => {
+    console.log("-------ERROR-------");
+});
 
 app.use((req, res) => {
     res.send("page not found");
