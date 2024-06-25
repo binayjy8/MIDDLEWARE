@@ -7,7 +7,7 @@ const checkToken = ("/api", (req, res, next) => {
     if(token === "giveaccess") {
         next ();
     }
-    throw new ExpressError("ACCESS DENIED!");
+    throw new ExpressError(401,"ACCESS DENIED!");
 });
 
 app.get("/api", checkToken, (req, res) => {
