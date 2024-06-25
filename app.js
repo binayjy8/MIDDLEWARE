@@ -27,8 +27,8 @@ app.get("/err", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-    console.log("-------ERROR-------");
-    res.send(err);
+    let {status = 500, message = "Some err Occured"} = err;
+    res.status(status).send(message);
 });
 
 // app.use((req, res) => {
