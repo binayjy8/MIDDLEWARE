@@ -26,6 +26,10 @@ app.get("/err", (req, res) => {
     cggd=hjhgj;
 });
 
+app.get("/admin", (req, res) => {
+    throw new ExpressError(403, "Access to admin is ferbidden");
+});
+
 app.use((err, req, res, next) => {
     let {status = 500, message = "Some err Occured"} = err;
     res.status(status).send(message);
