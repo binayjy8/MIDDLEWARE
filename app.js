@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.use("/api", (req, res, next) => {
-    let { token } = req.body;
+    let { token } = req.query;
     if(token === "giveaccess") {
         next ();
     }
