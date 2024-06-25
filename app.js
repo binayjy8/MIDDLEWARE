@@ -27,11 +27,12 @@ app.get("/err", (req, res) => {
 
 app.use((err, req, res, next) => {
     console.log("-------ERROR-------");
+    next(err);
 });
 
-app.use((req, res) => {
-    res.send("page not found");
-});
+// app.use((req, res) => {
+//     res.send("page not found");
+// });
 
 app.listen(8080, (req, res) => {
     console.log("server  listening to the port 8080");
