@@ -42,3 +42,9 @@ app.use((err, req, res, next) => {
 app.listen(8080, (req, res) => {
     console.log("server  listening to the port 8080");
 });
+
+function asyncWrap (fn) {
+    return function () {
+        fn(req, res, next).catch((err) => next(err));
+    }
+}
